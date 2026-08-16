@@ -1,63 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Japanese Home -->
   <url>
-    <loc>https://chamithdev-svg.github.io/cdl-japan-website/</loc>
+    <loc>https://cdljp.com/</loc>
     <priority>1.0</priority>
   </url>
 
+  <!-- English Home -->
   <url>
-    <loc>https://chamithdev-svg.github.io/cdl-japan-website/index-en.html</loc>
+    <loc>https://cdljp.com/index-en.html</loc>
     <priority>1.0</priority>
   </url>
 
+  <!-- About -->
   <url>
-    <loc>https://chamithdev-svg.github.io/cdl-japan-website/about.html</loc>
+    <loc>https://cdljp.com/about.html</loc>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://chamithdev-svg.github.io/cdl-japan-website/about-en.html</loc>
+    <loc>https://cdljp.com/about-en.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Vehicles -->
+  <url>
+    <loc>https://cdljp.com/vehicles.html</loc>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://chamithdev-svg.github.io/cdl-japan-website/vehicles.html</loc>
+    <loc>https://cdljp.com/vehicles-en.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Export -->
+  <url>
+    <loc>https://cdljp.com/export.html</loc>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://chamithdev-svg.github.io/cdl-japan-website/vehicles-en.html</loc>
+    <loc>https://cdljp.com/export-en.html</loc>
     <priority>0.9</priority>
   </url>
 
+  <!-- Contact -->
   <url>
-    <loc>https://chamithdev-svg.github.io/cdl-japan-website/export.html</loc>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://chamithdev-svg.github.io/cdl-japan-website/export-en.html</loc>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://chamithdev-svg.github.io/cdl-japan-website/contact.html</loc>
+    <loc>https://cdljp.com/contact.html</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://chamithdev-svg.github.io/cdl-japan-website/contact-en.html</loc>
+    <loc>https://cdljp.com/contact-en.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Vehicle Purchase -->
+  <url>
+    <loc>https://cdljp.com/purchase.html</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://chamithdev-svg.github.io/cdl-japan-website/purchase.html</loc>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://chamithdev-svg.github.io/cdl-japan-website/purchase-en.html</loc>
+    <loc>https://cdljp.com/purchase-en.html</loc>
     <priority>0.8</priority>
   </url>
 

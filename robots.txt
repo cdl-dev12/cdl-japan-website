@@ -1,0 +1,5 @@
+User-agent: *
+
+Allow: /
+
+Sitemap: https://chamithdev-svg.github.io/cdl-japan-website/sitemap.xml

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ | 合同会社 CDL</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        <a href="index.html">
+            <img src="images/logo.jpg" alt="CDL JAPAN Logo">
+        </a>
+    </div>
+
+    <nav>
+        <a href="index.html">ホーム</a>
+        <a href="purchase.html">車買取</a>
+        <a href="vehicles.html">販売車両</a>
+        <a href="export.html">海外輸出</a>
+        <a href="about.html">会社概要</a>
+        <a href="contact.html" class="active">お問い合わせ</a>
+        <div class="mobile-header-right">
+
+    
+
+    <a href="tel:08061889232" class="phone-btn">
+        📞 080-6188-9232
+    </a>
+
+    <a href="#" class="line-header">
+        LINE
+    </a>
+    <div class="mobile-language">
+
+    <a href="purchase.html" class="language-btn active">
+        JP
+    </a>
+
+    <span>|</span>
+
+    <a href="purchase-en.html" class="language-btn">
+        EN
+    </a>
+
+</div>
+    </nav>
+
+    <div class="menu-toggle" id="menuToggle">
+        ☰
+    </div>
+
+    <div class="header-right">
+
+         <a href="contact.html" class="language-btn active ">
+            JP  
+        </a>
+        <span>|</span>
+        <a href="contact-en.html" class="language-btn ">
+            EN
+        </a>
+
+        <a href="tel:08061889232" class="phone-btn">
+            📞 080-6188-9232
+        </a>
+
+        <a href="#" class="line-header">
+            LINE
+        </a>
+
+    </div>
+
+</header>
+
+<div class="breadcrumb">
+
+    <div class="container">
+
+        <a href="index.html">ホーム</a>
+
+        <span class="separator">›</span>
+
+        <span>お問い合わせ</span>
+
+    </div>
+
+</div>
+
+<section class="contact-section">
+
+    <div class="container">
+
+        <h1>お問い合わせ</h1>
+
+        <form class="contact-form" id="contact-form">
+
+    <input
+        type="text"
+        name="user_name"
+        placeholder="お名前"
+        required
+    >
+
+    <input
+        type="email"
+        name="user_email"
+        placeholder="メールアドレス"
+        required
+    >
+
+    <input
+    type="tel"
+    name="user_phone"
+    placeholder="電話番号 (例: 08012345678)"
+    pattern="^[0-9]{10,11}$"
+    title="10〜11桁の電話番号を入力してください。"
+    required
+>
+
+    <select name="vehicle">
+
+        <option value="">ご希望の車両</option>
+<option value="Car">乗用車</option>
+<option value="Truck">トラック</option>
+<option value="Heavy Machinery">重機</option>
+<option value="Forklift">フォークリフト</option>
+<option value="Motorcycle">バイク</option>
+
+    </select>
+    <!-- Photo Upload -->
+<div class="photo-upload">
+
+    <label for="carPhoto">
+        車両写真
+    </label>
+
+    <p class="photo-help">
+        お車の写真があれば、こちらからアップロードしてください。
+    </p>
+
+    <div class="custom-photo-upload">
+
+    <label for="carPhoto" class="photo-select-btn">
+        📷 写真を選択
+    </label>
+
+    <input
+        type="file"
+        id="carPhoto"
+        accept="image/jpeg,image/png,image/webp"
+        multiple
+        hidden
+    >
+
+    <p id="selectedPhotoCount" class="selected-photo-count">
+        写真が選択されていません。
+    </p>
+
+</div>
+
+    <div id="photoPreview"></div>
+
+    <p id="uploadStatus"></p>
+
+    <input
+        type="hidden"
+        name="photo_url"
+        id="photoUrl"
+    >
+
+</div>
+    <textarea
+        name="message"
+        rows="6"
+        placeholder="お問い合わせ内容"
+        required
+    ></textarea>
+
+    <button type="submit">
+        送信する
+    </button>
+
+</form>
+<div id="success-message" class="success-message">
+
+    <div class="success-icon">✅</div>
+
+    <h3>お問い合わせありがとうございます。</h3>
+
+    <p>
+        お問い合わせを受け付けました。<br>
+        担当者より24時間以内にご連絡いたします。
+    </p>
+
+</div>
+    </div>
+
+</section>
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- Company -->
+
+        <div class="footer-col">
+
+            <h3>合同会社 CDL</h3>
+
+            <p>
+                九州エリアを中心に中古車・トラック・重機の
+                買取を行い、スリランカへの輸出サービスも
+                提供しております。
+            </p>
+
+            <p><strong>会社名：</strong>合同会社 CDL</p>
+
+            <p><strong>代表社員：</strong>D.L ランディカ（エディー）</p>
+
+            <p>
+                <strong>所在地：</strong><br>
+                〒835-0104<br>
+                福岡県みやま市山川町河原内92番地1
+            </p>
+
+            <p>
+                <strong>メールアドレス：</strong><br>
+                <a href="mailto:cdlnihon@gmail.com">
+                    cdlnihon@gmail.com
+                </a>
+            </p>
+
+            <p>
+                <strong>電話番号：</strong><br>
+                <a href="tel:08061889232">
+                    080-6188-9232
+                </a>
+            </p>
+
+        </div>
+
+        <!-- Quick Links -->
+
+        <div class="footer-col">
+
+            <h3>サイトメニュー</h3>
+
+            <ul>
+
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="purchase.html">車買取</a></li>
+                <li><a href="vehicles.html">販売車両</a></li>
+                <li><a href="trucks.html">トラック・重機</a></li>
+                <li><a href="export.html">海外輸出</a></li>
+                <li><a href="about.html">会社概要</a></li>
+                <li><a href="contact.html">お問い合わせ</a></li>
+
+            </ul>
+
+        </div>
+
+        <!-- Services -->
+
+        <div class="footer-col">
+
+            <h3>サービス</h3>
+
+            <ul>
+
+                <li>✔ 中古車買取</li>
+                <li>✔ トラック買取</li>
+                <li>✔ 重機買取</li>
+                <li>✔ 九州エリア対応</li>
+                <li>✔ スリランカ向け輸出</li>
+
+            </ul>
+
+        </div>
+
+        <!-- Social -->
+
+        <div class="footer-col">
+
+            <h3>公式SNS</h3>
+
+            <div class="social-links">
+
+                <a href="#" target="_blank">Facebook</a>
+                <a href="#" target="_blank">Instagram</a>
+                <a href="#" target="_blank">LINE</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        © 2026 合同会社 CDL. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+<a href="https://line.me/" class="line-floating" target="_blank">
+    LINE
+</a>
+
+<button id="backToTop">↑</button>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+emailjs.init({
+    publicKey: "sxwTwhcLmDC1rTwFY"
+});
+</script>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({
+    duration: 900,
+    once: true,
+    offset: 100
+});
+</script>
+<script src="https://upload-widget.cloudinary.com/latest/global/all.js"></script>
+
+<script>
+const cloudName = "tzozuaoe";
+const uploadPreset = "cdl_website";
+
+const photoInput = document.getElementById("carPhoto");
+const photoUrl = document.getElementById("photoUrl");
+const photoPreview = document.getElementById("photoPreview");
+const uploadStatus = document.getElementById("uploadStatus");
+
+const selectedPhotoCount =
+    document.getElementById("selectedPhotoCount");
+
+photoInput.addEventListener("change", function () {
+
+    const files = this.files;
+
+    if (files.length > 0) {
+
+        selectedPhotoCount.textContent =
+            `${files.length}枚の写真を選択しました。`;
+
+    } else {
+
+        selectedPhotoCount.textContent =
+            "写真が選択されていません。";
+
+    }
+
+});
+
+photoInput.addEventListener("change", async function () {
+    
+    const files = Array.from(this.files);
+
+    const selectedPhotoCount =
+        document.getElementById("selectedPhotoCount");
+
+    if (files.length > 0) {
+        selectedPhotoCount.textContent =
+            `${files.length}枚の写真を選択しました。`;
+    }
+
+    if (!files.length) return;
+
+    // Maximum 5 photos
+    if (files.length > 5) {
+
+        uploadStatus.textContent =
+            "写真は最大5枚までアップロードできます。";
+
+        this.value = "";
+        photoPreview.innerHTML = "";
+        photoUrl.value = "";
+
+        selectedPhotoCount.textContent =
+            "写真が選択されていません。";
+
+        return;
+    }
+
+    // Maximum 10MB per photo
+    const invalidFile = files.find(
+        file => file.size > 10 * 1024 * 1024
+    );
+
+    if (invalidFile) {
+
+        uploadStatus.textContent =
+            "1枚の写真は10MB以下にしてください。";
+
+        this.value = "";
+        photoPreview.innerHTML = "";
+        photoUrl.value = "";
+
+        return;
+    }
+
+    photoPreview.innerHTML = "";
+    photoUrl.value = "";
+
+    uploadStatus.textContent =
+        "写真をアップロードしています...";
+
+    const uploadedUrls = [];
+
+    try {
+
+        for (let i = 0; i < files.length; i++) {
+
+            const file = files[i];
+
+            const formData = new FormData();
+
+            formData.append("file", file);
+            formData.append("upload_preset", uploadPreset);
+
+            const response = await fetch(
+                `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+                {
+                    method: "POST",
+                    body: formData
+                }
+            );
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(
+                    data.error?.message || "Upload failed"
+                );
+            }
+
+            uploadedUrls.push(data.secure_url);
+
+            // Preview
+            const img = document.createElement("img");
+
+            img.src = data.secure_url;
+            img.alt = `Vehicle photo ${i + 1}`;
+
+            img.style.maxWidth = "150px";
+            img.style.margin = "10px";
+            img.style.borderRadius = "10px";
+
+            photoPreview.appendChild(img);
+        }
+
+        // Save all URLs
+        photoUrl.value = uploadedUrls.join("\n");
+
+        uploadStatus.textContent =
+            `✓ ${uploadedUrls.length}枚の写真のアップロードが完了しました。`;
+
+    } catch (error) {
+
+        console.error(error);
+
+        uploadStatus.textContent =
+            "写真のアップロードに失敗しました。";
+
+        photoUrl.value = "";
+        photoPreview.innerHTML = "";
+    }
+
+});
+</script>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,789 @@
+<!DOCTYPE html>  
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>車買取・販売・輸出 |合同会社 CDL </title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+</head>
+
+<body>
+<!-- ===========================
+   NEW YEAR POPUP
+=========================== -->
+
+<div id="newYearPopup" class="newyear-popup">
+
+    <div class="newyear-box">
+
+        <div class="fireworks"></div>
+
+        <!-- Countdown Content -->
+        <div id="countdownContent">
+
+            <h1>🎍 新年まであと 🎍</h1>
+
+            <h2 id="countdownYear"></h2>
+
+            <div class="countdown-box">
+
+                <div class="count-item">
+                    <span id="days">00</span>
+                    <small>日</small>
+                </div>
+
+                <div class="count-item">
+                    <span id="hours">00</span>
+                    <small>時間</small>
+                </div>
+
+                <div class="count-item">
+                    <span id="minutes">00</span>
+                    <small>分</small>
+                </div>
+
+                <div class="count-item">
+                    <span id="seconds">00</span>
+                    <small>秒</small>
+                </div>
+
+            </div>
+
+            <div id="finalCountdown" style="display:none;">
+
+                <h1 id="countNumber">10</h1>
+
+                <p>まもなく新しい年を迎えます...</p>
+
+            </div>
+
+        </div>
+
+        <!-- Happy New Year Content -->
+        <div id="newYearContent" style="display:none;">
+
+            <h1>🎉 あけまして<br>おめでとうございます 🎉</h1>
+
+            <h2 id="newYearTitle"></h2>
+
+            <p>
+                合同会社 CDL より<br><br>
+
+                新年あけましておめでとうございます。<br>
+                本年もどうぞよろしくお願いいたします。<br><br>
+
+                皆様にとって素晴らしい一年になりますよう、
+                心よりお祈り申し上げます。
+            </p>
+
+        </div>
+
+        <button id="enterWebsite">
+            ウェブサイトへ進む
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <!-- Logo -->
+    <div class="logo">
+        <a href="index.html">
+            <img src="images/logo.jpg" alt="CDL JAPAN">
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+
+        <a href="index.html"class="active">ホーム</a>
+        <a href="purchase.html">車買取</a>
+        <a href="vehicles.html">販売車両</a>
+        <a href="export.html" >海外輸出</a>
+        <a href="about.html">会社概要</a>
+        <a href="contact.html">お問い合わせ</a>
+
+        <!-- Mobile Only -->
+        <div class="mobile-header-right">
+
+            <a href="index.html" class="language-btn active">
+                JP
+            </a>
+
+            <span>|</span>
+
+            <a href="index-en.html" class="language-btn">
+                EN
+            </a>
+
+            <a href="tel:08061889232" class="phone-btn">
+                📞 080-6188-9232
+            </a>
+
+            <a href="#" class="line-header">
+                LINE
+            </a>
+
+    <div class="mobile-language">
+
+    <a href="index.html" class="language-btn active">
+        JP
+    </a>
+
+    <span>|</span>
+
+    <a href="index-en.html" class="language-btn">
+        EN
+    </a>
+
+</div>
+
+        </div>
+
+    </nav>
+
+    <!-- Desktop Only -->
+    <div class="header-right">
+
+        <a href="index.html" class="language-btn active">
+            JP
+        </a>
+
+        <span>|</span>
+
+        <a href="index-en.html" class="language-btn">
+            EN
+        </a>
+
+        <a href="tel:08061889232" class="phone-btn">
+            📞 080-6188-9232
+        </a>
+
+        <a href="#" class="line-header">
+            LINE
+        </a>
+
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="menu-toggle" id="menuToggle">
+        ☰
+    </div>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="hero">
+
+    <div class="hero-overlay"></div>
+    <div class="sakura-container">
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+</div>
+<div class="summer-container">
+    <div class="sun-rays"></div>
+    <span class="summer-orb"></span>
+<span class="summer-orb"></span>
+<span class="summer-orb"></span>
+<span class="summer-orb"></span>
+<span class="summer-orb"></span>
+<span class="summer-orb"></span>
+<span class="summer-orb"></span>
+<span class="summer-orb"></span>
+<span class="summer-orb"></span>
+<span class="summer-orb"></span>
+<span class="summer-orb"></span>
+<span class="summer-orb"></span>
+
+<div class="lens-flare"></div>
+</div>
+
+<div class="autumn-container">
+
+    <span class="autumn-leaf"></span>
+    <span class="autumn-leaf"></span>
+    <span class="autumn-leaf"></span>
+    <span class="autumn-leaf"></span>
+    <span class="autumn-leaf"></span>
+    <span class="autumn-leaf"></span>
+    <span class="autumn-leaf"></span>
+    <span class="autumn-leaf"></span>
+    <span class="autumn-leaf"></span>
+    <span class="autumn-leaf"></span>
+    <span class="autumn-leaf"></span>
+    <span class="autumn-leaf"></span>
+
+</div>
+<div class="winter-container">
+
+    <span class="snowflake"></span>
+    <span class="snowflake"></span>
+    <span class="snowflake"></span>
+    <span class="snowflake"></span>
+    <span class="snowflake"></span>
+    <span class="snowflake"></span>
+    <span class="snowflake"></span>
+    <span class="snowflake"></span>
+    <span class="snowflake"></span>
+    <span class="snowflake"></span>
+    <span class="snowflake"></span>
+    <span class="snowflake"></span>
+
+</div>
+    <div class="hero-content" data-aos="fade-right">
+
+        <span class="hero-tag">
+            TRUSTED USED CAR DEALER
+        </span>
+
+        <h1>
+    <span class="hero-line1">日本全国</span>
+    <span class="hero-line2">高価買取</span>
+        </h1>
+
+        <p>
+
+            中古車・トラック・重機を
+            高価買取いたします。
+
+            全国対応・無料査定・即日対応。
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="contact.html" class="gold-btn">
+
+                無料査定はこちら
+
+            </a>
+
+            <a href="vehicles.html" class="white-btn">
+
+                販売車両を見る
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= SERVICES ================= -->
+
+<section class="services-section">
+
+    <div class="section-title">
+
+        <span>OUR SERVICES</span>
+
+        <h2>サービス一覧</h2>
+
+    </div>
+
+    <div class="services-grid">
+
+        <a href="purchase.html" class="service-card" data-aos="fade-up">
+
+            <img src="images/service-car.jpg" alt="">
+
+            <div class="service-text">
+
+                <h3>車買取</h3>
+
+                <p>
+                    国産・輸入車を
+                    高価買取いたします。
+                </p>
+
+            </div>
+
+        </a>
+
+        <a href="trucks.html" class="service-card" data-aos="fade-up" data-aos-delay="100">
+
+            <img src="images/service-truck.jpg" alt="">
+
+            <div class="service-text">
+
+                <h3>トラック・重機</h3>
+
+                <p>
+                    商用車・重機も
+                    お任せください。
+                </p>
+
+            </div>
+
+        </a>
+
+        <a href="export.html" class="service-card" data-aos="fade-up" data-aos-delay="200">
+
+            <img src="images/service-export.jpg" alt="">
+
+            <div class="service-text">
+
+                <h3>海外輸出</h3>
+
+                <p>
+
+                    世界中へ日本品質を
+                    お届けします。
+
+                </p>
+
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
+
+<!-- ================= PURCHASE FLOW ================= -->
+
+<section class="flow-section">
+
+    <div class="section-title">
+
+        <span>PURCHASE FLOW</span>
+
+        <h2>車買取の流れ</h2>
+
+    </div>
+
+    <div class="flow-grid">
+
+        <div class="flow-card" data-aos="zoom-in">
+
+            <div class="flow-number">01</div>
+
+            <h3>無料査定</h3>
+
+            <p>
+                お電話・LINE・お問い合わせフォームから
+                お気軽にご相談ください。
+            </p>
+
+        </div>
+
+        <div class="flow-card" data-aos="zoom-in" data-aos-delay="100">
+
+            <div class="flow-number">02</div>
+
+            <h3>現地査定</h3>
+
+            <p>
+                スタッフがお車を確認し、
+                丁寧に査定いたします。
+            </p>
+
+        </div>
+
+        <div class="flow-card" data-aos="zoom-in" data-aos-delay="200">
+
+            <div class="flow-number">03</div>
+
+            <h3>お見積り</h3>
+
+            <p>
+                ご納得いただける価格を
+                ご提示いたします。
+            </p>
+
+        </div>
+
+        <div class="flow-card" data-aos="zoom-in" data-aos-delay="300">
+            <div class="flow-number">04</div>
+
+            <h3>即日お支払い</h3>
+
+            <p>
+                ご契約後、
+                スムーズにお支払いいたします。
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= PURCHASE VEHICLES ================= -->
+
+<section class="purchase-category">
+
+    <div class="section-title">
+
+        <span>WE PURCHASE ALL TYPES OF VEHICLES</span>
+
+        <h2>高価買取対象車両</h2>
+
+        <p>
+            乗用車からトラック・重機まで
+            幅広く高価買取しております。
+        </p>
+
+    </div>
+
+    <div class="purchase-grid">
+
+        <div class="purchase-card">
+            <img src="images/sedan.jpg" alt="Sedan">
+            <h3>セダン</h3>
+        </div>
+
+        <div class="purchase-card">
+            <img src="images/suv.jpg" alt="SUV">
+            <h3>SUV</h3>
+        </div>
+
+        <div class="purchase-card">
+            <img src="images/minivan.jpg" alt="Minivan">
+            <h3>ミニバン</h3>
+        </div>
+
+        <div class="purchase-card">
+            <img src="images/truck-category.jpg" alt="Truck">
+            <h3>トラック</h3>
+        </div>
+
+        <div class="purchase-card">
+            <img src="images/excavator-category.jpg" alt="Excavator">
+            <h3>重機</h3>
+        </div>
+
+        <div class="purchase-card">
+            <img src="images/commercial.jpg" alt="Commercial">
+            <h3>商用車</h3>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<!-- ================= WHY CDL JAPAN ================= -->
+
+<section class="why-section">
+
+    <div class="section-title">
+        <span>WHY CHOOSE CDL JAPAN</span>
+        <h2>CDL JAPANが選ばれる理由</h2>
+    </div>
+
+    <div class="why-grid">
+
+        <div class="why-card" data-aos="fade-up">
+            <div class="why-icon">🚗</div>
+            <h3>高価買取</h3>
+            <p>市場価格をもとに高価買取を実現します。</p>
+        </div>
+
+        <div class="why-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="why-icon">⚡</div>
+            <h3>スピード査定</h3>
+            <p>お問い合わせから最短当日査定に対応します。</p>
+        </div>
+
+        <div class="why-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="why-icon">🛡️</div>
+            <h3>安心取引</h3>
+            <p>丁寧・安心・安全なお取引をお約束します。</p>
+        </div>
+
+        <div class="why-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="why-icon">🌏</div>
+            <h3>全国対応</h3>
+            <p>日本全国どこでも無料査定いたします。</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="review-section">
+
+    <div class="section-title">
+
+        <span>CUSTOMER REVIEWS</span>
+
+        <h2>お客様の声</h2>
+
+    </div>
+
+    <div class="review-grid">
+
+        <div class="review-card" data-aos="zoom-in">
+
+            <div class="stars">★★★★★</div>
+
+            <p>
+                "迅速で丁寧な対応でした。
+                初めての輸出でも安心して任せることができました。"
+            </p>
+
+            <h4>🇱🇰 Sri Lanka</h4>
+
+        </div>
+
+        <div class="review-card" data-aos="zoom-in" data-aos-delay="100">
+
+            <div class="stars">★★★★★</div>
+
+            <p>
+                "査定価格にも満足しています。
+                手続きもスムーズで信頼できる会社です。"
+            </p>
+
+            <h4>🇱🇰 Sri Lanka</h4>
+
+        </div>
+        <div class="review-card" data-aos="zoom-in" data-aos-delay="200">
+
+    <div class="stars">★★★★★</div>
+
+    <p>
+        "車両の状態も非常に良く、
+        納車まで安心して取引できました。
+        また利用したいと思います。"
+    </p>
+
+    <h4>🇱🇰 Sri Lanka</h4>
+
+</div>
+
+    </div>
+
+</section>
+
+<section class="about-section">
+
+    <div class="about-image" data-aos="fade-right">
+
+        <img src="images/about-company.jpg" alt="CDL JAPAN">
+
+    </div>
+
+    <div class="about-content" data-aos="fade-left">
+
+        <span>ABOUT CDL JAPAN</span>
+
+        <h2>信頼される中古車買取・輸出サービス</h2>
+
+        <p>
+            CDL JAPANは、日本国内で中古車・トラック・重機の
+            高価買取を行い、スリランカへの輸出を専門とする会社です。
+        </p>
+
+        <p>
+            お客様一人ひとりを大切にし、
+            安心・迅速・丁寧なサービスを心がけています。
+        </p>     
+
+        <div class="about-list">
+
+            <div>✔ 無料査定</div>
+
+            <div>✔ 高価買取</div>
+
+            <div>✔ スリランカ輸出専門</div>
+
+            <div>✔ 安心・安全なお取引</div>
+
+        </div>
+
+        <a href="contact.html" class="about-btn">
+
+            無料査定はこちら
+
+        </a>
+
+    </div>
+
+</section>
+
+<section class="cta">
+
+    <div class="cta-content" data-aos="zoom-in">
+
+        <h2>高価買取なら<br>合同会社 CDLへ</h2>
+
+        <p>
+            無料査定・迅速対応で<br>
+            お客様の大切なお車を高価買取いたします。
+        </p>
+
+        <a href="contact.html" class="cta-btn">
+            無料査定を申し込む
+        </a>
+
+    </div>
+
+</section>
+
+
+
+
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- Company -->
+
+        <div class="footer-col">
+
+            <h3>合同会社 CDL</h3>
+
+            <p>
+                九州エリアを中心に中古車・トラック・重機の
+                買取を行い、スリランカへの輸出サービスも<br>
+                提供しております。
+            </p>
+
+            <p><strong>会社名：</strong>合同会社 CDL</p>
+
+            <p><strong>代表社員：</strong>D.L ランディカ（エディー）</p>
+
+            <p>
+                <strong>所在地：</strong><br>
+                〒835-0104<br>
+                福岡県みやま市山川町河原内92番地1
+            </p>
+
+            <p>
+                <strong>メールアドレス：</strong><br>
+                <a href="mailto:cdlnihon@gmail.com">
+                    cdlnihon@gmail.com
+                </a>
+            </p>
+
+            <p>
+                <strong>電話番号：</strong><br>
+                <a href="tel:08061889232">
+                    080-6188-9232
+                </a>
+            </p>
+
+
+
+        </div>
+
+        <!-- Quick Links -->
+
+        <div class="footer-col">
+
+            <h3>サイトメニュー</h3>
+
+            <ul>
+
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="purchase.html">車買取</a></li>
+                <li><a href="cars.html">販売車両</a></li>
+                <li><a href="export.html">海外輸出</a></li>
+                <li><a href="about.html">会社概要</a></li>
+                <li><a href="contact.html">お問い合わせ</a></li>
+
+            </ul>
+
+        </div>
+
+        
+        <!-- Services -->
+
+        <div class="footer-col">
+
+            <h3>サービス</h3>
+
+            <ul>
+
+                <li>✔ 中古車買取</li>
+                <li>✔ トラック買取</li>
+                <li>✔ 重機買取</li>
+                <li>✔ 九州エリア対応</li>
+                <li>✔ スリランカ向け輸出</li>
+
+            </ul>
+
+        </div>
+
+        <!-- Social -->
+
+        <div class="footer-col">
+
+            <h3>公式SNS</h3>
+
+            <div class="social-links">
+
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">LINE</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        © 2026 合同会社 CDL. All Rights Reserved.
+
+    </div>
+
+</footer>
+<a href="https://line.me/" class="line-floating" target="_blank">
+    LINE
+</a>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 80,
+    easing: "ease-out-cubic"
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script>
+<button id="backToTop">↑</button>
+<script src="newyear.js"></script>
+</body>
+</html>

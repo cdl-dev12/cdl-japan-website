@@ -1,0 +1,592 @@
+/* =========================
+   CDL CINEMATIC INTRO
+========================= */
+
+#cdl-intro {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    overflow: hidden;
+    background: #000;
+    opacity: 1;
+    visibility: visible;
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+}
+
+#cdl-intro.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.cdl-intro-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #252525 0%,
+            #111 35%,
+            #050505 70%,
+            #000 100%
+        );
+}
+
+/* Cinematic light */
+
+.cdl-intro-screen::before {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    background:
+        linear-gradient(
+            110deg,
+            transparent 40%,
+            rgba(255,255,255,0.08) 50%,
+            transparent 60%
+        );
+    transform: translateX(-60%);
+    animation: cinematicLight 3s ease-in-out infinite;
+}
+
+/* Dark vignette */
+
+.cdl-intro-screen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 30%,
+            rgba(0,0,0,0.45) 70%,
+            rgba(0,0,0,0.9) 100%
+        );
+
+    pointer-events: none;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.cdl-intro-logo {
+    position: relative;
+    z-index: 3;
+
+    width: 190px;
+    height: 190px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    transform: scale(0.65);
+
+    animation:
+        logoReveal 1.4s cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+.cdl-intro-logo::before {
+    content: "";
+
+    position: absolute;
+    inset: -25px;
+
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 50%;
+
+    opacity: 0;
+
+    animation:
+        ringReveal 1.5s ease 0.5s forwards,
+        ringRotate 8s linear 1.5s infinite;
+}
+
+.cdl-intro-logo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 20px rgba(255,255,255,0.15),
+        0 0 60px rgba(255,255,255,0.1),
+        0 0 120px rgba(255,255,255,0.05);
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.cdl-intro-text {
+    position: relative;
+    z-index: 3;
+
+    margin-top: 38px;
+
+    text-align: center;
+
+    color: #fff;
+
+    opacity: 0;
+    transform: translateY(30px);
+
+    animation:
+        textReveal 1.2s ease 0.9s forwards;
+}
+
+.cdl-intro-text span {
+    display: block;
+
+    font-size: 36px;
+    font-weight: 700;
+
+    letter-spacing: 10px;
+
+    text-shadow:
+        0 0 15px rgba(255,255,255,0.25);
+}
+
+.cdl-intro-text small {
+    display: block;
+
+    margin-top: 12px;
+
+    font-size: 12px;
+    font-weight: 400;
+
+    letter-spacing: 6px;
+
+    opacity: 0.65;
+}
+
+/* =========================
+   LINE
+========================= */
+
+.cdl-intro-text::after {
+    content: "";
+
+    display: block;
+
+    width: 0;
+    height: 1px;
+
+    margin: 22px auto 0;
+
+    background: rgba(255,255,255,0.65);
+
+    animation:
+        lineReveal 1s ease 1.5s forwards;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes logoReveal {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.65);
+        filter: blur(15px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.08);
+        filter: blur(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes ringReveal {
+
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes ringRotate {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes textReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+        letter-spacing: 18px;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        letter-spacing: 10px;
+    }
+}
+
+@keyframes lineReveal {
+
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 180px;
+    }
+}
+
+@keyframes cinematicLight {
+
+    0% {
+        transform: translateX(-60%) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(60%) rotate(0deg);
+    }
+
+    100% {
+        transform: translateX(-60%) rotate(0deg);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .cdl-intro-logo {
+        width: 135px;
+        height: 135px;
+    }
+
+    .cdl-intro-logo::before {
+        inset: -18px;
+    }
+
+    .cdl-intro-text {
+        margin-top: 30px;
+    }
+
+    .cdl-intro-text span {
+        font-size: 24px;
+        letter-spacing: 6px;
+    }
+
+    .cdl-intro-text small {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .cdl-intro-text::after {
+        margin-top: 18px;
+    }
+}
+
+/* =========================
+   CAR LIGHT EFFECT
+========================= */
+
+.cdl-car-light {
+    position: absolute;
+    z-index: 1;
+
+    width: 180%;
+    height: 45%;
+
+    left: -40%;
+    bottom: 5%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255,255,255,0.02) 35%,
+            rgba(255,255,255,0.16) 48%,
+            rgba(255,255,255,0.02) 60%,
+            transparent 100%
+        );
+
+    transform: skewX(-18deg) translateX(-60%);
+
+    filter: blur(8px);
+
+    animation: carLightMove 2.8s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+.cdl-car-light::before,
+.cdl-car-light::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 12px;
+
+    right: 20%;
+
+    background: rgba(255,255,255,0.8);
+
+    border-radius: 50%;
+
+    filter: blur(8px);
+
+    box-shadow:
+        0 0 25px rgba(255,255,255,0.7),
+        0 0 60px rgba(255,255,255,0.35);
+}
+
+.cdl-car-light::before {
+    top: 30%;
+}
+
+.cdl-car-light::after {
+    top: 60%;
+}
+
+@keyframes carLightMove {
+
+    0% {
+        transform: skewX(-18deg) translateX(-70%);
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: skewX(-18deg) translateX(10%);
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: skewX(-18deg) translateX(70%);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   PREMIUM LOGO GLOW
+========================= */
+
+.cdl-intro-logo img {
+    animation:
+        logoPulse 2.2s ease-in-out 1.4s infinite;
+}
+
+@keyframes logoPulse {
+    0%, 100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+
+    50% {
+        transform: scale(1.035);
+        filter: brightness(1.18);
+    }
+}
+
+.cdl-intro-logo::after {
+    content: "";
+
+    position: absolute;
+    inset: -45px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.12) 0%,
+            rgba(255,255,255,0.04) 35%,
+            transparent 70%
+        );
+
+    opacity: 0;
+
+    animation: logoGlow 1.5s ease 0.7s forwards;
+
+    pointer-events: none;
+}
+
+@keyframes logoGlow {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* =========================
+   PREMIUM TEXT REVEAL
+========================= */
+
+.cdl-intro-text span {
+    position: relative;
+    overflow: hidden;
+}
+
+.cdl-intro-text span::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -120%;
+
+    width: 80%;
+    height: 100%;
+
+    background: linear-gradient(
+        100deg,
+        transparent,
+        rgba(255,255,255,0.8),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    animation: textShine 1.8s ease 1.5s forwards;
+}
+
+.cdl-intro-text small {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: subtitleReveal 1s ease 1.8s forwards;
+}
+
+@keyframes textShine {
+
+    0% {
+        left: -120%;
+    }
+
+    100% {
+        left: 140%;
+    }
+}
+
+@keyframes subtitleReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+        letter-spacing: 10px;
+    }
+
+    to {
+        opacity: 0.7;
+        transform: translateY(0);
+        letter-spacing: 6px;
+    }
+}
+
+/* =========================
+   ENTER CDL BUTTON
+========================= */
+
+.cdl-enter-btn {
+    position: relative;
+    z-index: 10;
+
+    margin-top: 45px;
+
+    padding: 14px 34px;
+
+    border: 1px solid rgba(255,255,255,0.45);
+    border-radius: 30px;
+
+    background: rgba(0,0,0,0.35);
+
+    color: #fff;
+
+    font-size: 11px;
+    font-weight: 500;
+
+    letter-spacing: 4px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(8px);
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        opacity 0.5s ease;
+}
+
+.cdl-enter-btn:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.8);
+    transform: scale(1.05);
+}
+
+.cdl-enter-btn.clicked {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
+}
+
+#cdl-intro.started .cdl-enter-btn {
+    pointer-events: none;
+}
+
+@media (max-width: 600px) {
+
+    .cdl-enter-btn {
+        margin-top: 35px;
+        padding: 12px 26px;
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+}

@@ -46,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateCountdown() {
 
     const now = new Date();
-
     const diff = targetDate - now;
 
     if (diff <= 0) {
@@ -110,9 +109,12 @@ if (month === 1 && day <= 2) {
 
 // Enter Website button
 enterBtn.addEventListener("click", () => {
+     
+     
 
     // Gold Confetti
     confetti({
+        
         particleCount: 180,
         spread: 90,
         origin: { y: 0.6 },

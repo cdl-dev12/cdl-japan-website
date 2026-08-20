@@ -6238,3 +6238,182 @@ div{
     }
 
 }
+
+/* =========================
+   COMING SOON POPUP
+========================= */
+
+.coming-soon-popup {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+
+.coming-soon-popup.active {
+    display: flex;
+}
+
+
+.coming-soon-box {
+    position: relative;
+
+    width: min(420px, 100%);
+
+    padding: 40px 30px 30px;
+
+    text-align: center;
+
+    background: #111;
+
+    border: 1px solid rgba(212, 175, 55, 0.5);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(212, 175, 55, 0.15);
+
+    animation: comingSoonPopupIn 0.35s ease-out;
+}
+
+
+@keyframes comingSoonPopupIn {
+
+    from {
+        opacity: 0;
+        transform: scale(0.85) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+}
+
+
+.coming-soon-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+
+.coming-soon-box h2 {
+    margin: 0 0 12px;
+
+    font-size: 28px;
+    letter-spacing: 3px;
+
+    color: #d4af37;
+}
+
+
+.coming-soon-box p {
+    margin: 0 0 10px;
+
+    font-size: 19px;
+
+    color: #ffffff;
+}
+
+
+.coming-soon-box span {
+    display: block;
+
+    margin-bottom: 25px;
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+.coming-soon-close {
+    position: absolute;
+
+    top: 12px;
+    right: 15px;
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 30px;
+    line-height: 1;
+
+    color: #ffffff;
+
+    cursor: pointer;
+}
+
+
+.coming-soon-close:hover {
+    color: #d4af37;
+}
+
+
+.coming-soon-ok {
+    min-width: 120px;
+
+    padding: 12px 25px;
+
+    border: 1px solid #d4af37;
+    border-radius: 30px;
+
+    background: transparent;
+
+    color: #d4af37;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.coming-soon-ok:hover {
+    background: #d4af37;
+    color: #111;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .coming-soon-box {
+        padding: 35px 22px 25px;
+    }
+
+    .coming-soon-box h2 {
+        font-size: 23px;
+    }
+
+    .coming-soon-box p {
+        font-size: 17px;
+    }
+
+    .coming-soon-icon {
+        font-size: 42px;
+    }
+
+}

@@ -361,7 +361,7 @@
 
         </a>
 
-        <a href="trucks.html" class="service-card" data-aos="fade-up" data-aos-delay="100">
+         <a href="#" class="service-card coming-soon-card" data-aos="fade-up" data-aos-delay="100">
 
             <img src="images/service-truck.jpg" alt="">
 
@@ -819,5 +819,122 @@ AOS.init({
 <button id="backToTop">↑</button>
 <script src="newyear.js"></script>
 <script src="intro/intro.js"></script>
+
+<!-- =========================
+     COMING SOON POPUP
+========================= -->
+
+<div id="comingSoonPopup" class="coming-soon-popup">
+
+    <div class="coming-soon-box">
+
+        <button
+            type="button"
+            id="comingSoonClose"
+            class="coming-soon-close"
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+        <div class="coming-soon-icon">
+            🚛
+        </div>
+
+        <h2>COMING SOON</h2>
+
+        <p>
+            Trucks & Machinery
+        </p>
+
+        <span>
+            This page is currently under preparation.
+        </span>
+
+        <button
+            type="button"
+            id="comingSoonOk"
+            class="coming-soon-ok"
+        >
+            OK
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const comingSoonPopup =
+        document.getElementById("comingSoonPopup");
+
+    const comingSoonClose =
+        document.getElementById("comingSoonClose");
+
+    const comingSoonOk =
+        document.getElementById("comingSoonOk");
+
+    const comingSoonCard =
+        document.querySelector(".coming-soon-card");
+
+
+    // Open popup
+    if (comingSoonCard) {
+
+        comingSoonCard.addEventListener("click", (event) => {
+
+            event.preventDefault();
+
+            comingSoonPopup.classList.add("active");
+
+        });
+
+    }
+
+
+    // Close button
+    if (comingSoonClose) {
+
+        comingSoonClose.addEventListener("click", () => {
+
+            comingSoonPopup.classList.remove("active");
+
+        });
+
+    }
+
+
+    // OK button
+    if (comingSoonOk) {
+
+        comingSoonOk.addEventListener("click", () => {
+
+            comingSoonPopup.classList.remove("active");
+
+        });
+
+    }
+
+
+    // Close when clicking outside the box
+    if (comingSoonPopup) {
+
+        comingSoonPopup.addEventListener("click", (event) => {
+
+            if (event.target === comingSoonPopup) {
+
+                comingSoonPopup.classList.remove("active");
+
+            }
+
+        });
+
+    }
+
+});
+</script>
+
+
 </body>
 </html>

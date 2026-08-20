@@ -36,6 +36,17 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Vehicle Details -->
+  <url>
+    <loc>https://cdljp.com/vehicle-details.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://cdljp.com/vehicle-details-en.html</loc>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Export -->
   <url>
     <loc>https://cdljp.com/export.html</loc>

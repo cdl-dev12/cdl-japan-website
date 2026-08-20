@@ -46,6 +46,61 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+    <!-- =========================
+     CDL JAPAN - VEHICLE LISTING SCHEMA
+========================= -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://cdljp.com/vehicles.html#webpage",
+      "url": "https://cdljp.com/vehicles.html",
+      "name": "中古車・トラック・重機 販売車両一覧 | CDL JAPAN",
+      "description": "CDL JAPANの中古車・トラック・重機の販売車両一覧。乗用車、トラック、重機など、厳選した車両を掲載しています。福岡・九州を中心に全国のお客様へ対応しています。",
+      "isPartOf": {
+        "@id": "https://cdljp.com/#website"
+      },
+      "about": {
+        "@id": "https://cdljp.com/#organization"
+      },
+      "inLanguage": "ja"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://cdljp.com/#website",
+      "url": "https://cdljp.com/",
+      "name": "CDL JAPAN",
+      "publisher": {
+        "@id": "https://cdljp.com/#organization"
+      }
+    },
+    {
+      "@type": "AutoDealer",
+      "@id": "https://cdljp.com/#organization",
+      "name": "合同会社CDL",
+      "alternateName": "CDL JAPAN",
+      "url": "https://cdljp.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://cdljp.com/images/logo.jpg"
+      },
+      "telephone": "+81-80-6188-9232",
+      "email": "cdlnihon@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "山川町河原内92番地1",
+        "postalCode": "835-0104",
+        "addressLocality": "みやま市",
+        "addressRegion": "福岡県",
+        "addressCountry": "JP"
+      }
+    }
+  ]
+}
+</script>
 </head>
 
 <body>

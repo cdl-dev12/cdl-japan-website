@@ -41,6 +41,51 @@
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+<!-- =========================
+     CDL JAPAN - PURCHASE SERVICE SCHEMA
+========================= -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://cdljp.com/purchase.html#service",
+      "name": "中古車・トラック・重機の買取",
+      "alternateName": "Used Vehicle Purchase Service",
+      "description": "CDL JAPANは福岡県みやま市を拠点に、中古車・トラック・重機を高価買取しています。無料査定・迅速対応・全国対応。",
+      "provider": {
+        "@type": "AutoDealer",
+        "@id": "https://cdljp.com/#organization",
+        "name": "合同会社CDL",
+        "alternateName": "CDL JAPAN",
+        "url": "https://cdljp.com/"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Japan"
+      },
+      "serviceType": "Used Vehicle Purchase"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://cdljp.com/purchase.html#webpage",
+      "url": "https://cdljp.com/purchase.html",
+      "name": "車買取 | 中古車・トラック・重機の高価買取 | CDL JAPAN",
+      "description": "中古車・トラック・重機の高価買取。無料査定・迅速対応・全国対応のCDL JAPAN。",
+      "isPartOf": {
+        "@id": "https://cdljp.com/#website"
+      },
+      "about": {
+        "@id": "https://cdljp.com/purchase.html#service"
+      },
+      "inLanguage": "ja"
+    }
+  ]
+}
+</script>
+
 </head>
 
 <body>

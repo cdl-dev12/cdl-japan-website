@@ -46,7 +46,8 @@ const vehicles = [
     mileage: "60,000 km",
     fuel: "Petrol",
     transmission: "Auto",
-    image: "images/sell/Honda N-BOX Custom.jpg"
+    image: "images/sell/Honda N-BOX Custom.jpg",
+    sold:true
   },
   {
     id: 3,

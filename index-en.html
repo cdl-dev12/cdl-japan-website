@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME | CDL LLC</title>
-    <title> Used Cars, Trucks & Heavy Machinery in Japan | CDL LLC  </title>
+    
 
 <meta name="description" content="CDL JAPAN is based in Fukuoka, Japan and specializes in buying and selling used cars, trucks and heavy machinery, with vehicle export services to Sri Lanka.">
 
@@ -125,8 +125,6 @@
   ]
 }
 </script>
-
-
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="CDL JAPAN | Used Cars, Trucks & Heavy Machinery">
@@ -142,12 +140,8 @@
 <meta name="twitter:description" content="Used cars, trucks and heavy machinery purchase, sales and export from Japan to Sri Lanka.">
 <meta name="twitter:image" content="https://cdljp.com/images/about-company.jpg">
 
-<link rel="alternate" hreflang="ja" href="https://cdljp.com/">
-<link rel="alternate" hreflang="en" href="https://cdljp.com/index-en.html">
-<link rel="alternate" hreflang="x-default" href="https://cdljp.com/">
 
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="intro/intro.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -156,9 +150,6 @@
 </head>
 
 <body>
-    <div id="cdl-intro"></div>
-
-    
 <!-- ===========================
    NEW YEAR POPUP
 =========================== -->
@@ -251,8 +242,8 @@
     <nav id="navbar">
 
         <a href="index-en.html"class="active">Home</a>
-        <a href="purchase-en.html">Vehicle Purchase</a>
-        <a href="vehicles-en.html">Our Vehicles</a>
+        <a href="purchase-en.html">Car Purchase</a>
+        <a href="vehicles-en.html">Vehicles</a>
         <a href="export-en.html" >Export</a>
         <a href="about-en.html">About Us</a>
         <a href="contact-en.html">Contact</a>
@@ -260,7 +251,15 @@
         <!-- Mobile Only -->
         <div class="mobile-header-right">
 
-            
+            <a href="index.html" class="language-btn ">
+                JP
+            </a>
+
+            <span>|</span>
+
+            <a href="index-en.html" class="language-btn active">
+                EN
+            </a>
 
             <a href="tel:08061889232" class="phone-btn">
                 📞 080-6188-9232
@@ -427,7 +426,7 @@
 
             </a>
 
-            <a href="vehicles-en.html" class="white-btn">
+            <a href="vehicles.html" class="white-btn">
 
                 View Vehicles
 
@@ -472,7 +471,7 @@
 
         </a>
 
-         <a href="#" class="service-card coming-soon-card" data-aos="fade-up" data-aos-delay="100">
+        <a href="trucks.html" class="service-card" data-aos="fade-up" data-aos-delay="100">
 
             <img src="images/service-truck.jpg" alt="">
 
@@ -929,123 +928,5 @@ AOS.init({
 <script src="script.js"></script>
 <button id="backToTop">↑</button>
 <script src="newyear.js"></script>
-<script src="intro/intro.js"></script>
-
-<!-- =========================
-     COMING SOON POPUP
-========================= -->
-
-<div id="comingSoonPopup" class="coming-soon-popup">
-
-    <div class="coming-soon-box">
-
-        <button
-            type="button"
-            id="comingSoonClose"
-            class="coming-soon-close"
-            aria-label="Close"
-        >
-            ×
-        </button>
-
-        <div class="coming-soon-icon">
-            🚛
-        </div>
-
-        <h2>COMING SOON</h2>
-
-        <p>
-            Trucks & Machinery
-        </p>
-
-        <span>
-            This page is currently under preparation.
-        </span>
-
-        <button
-            type="button"
-            id="comingSoonOk"
-            class="coming-soon-ok"
-        >
-            OK
-        </button>
-
-    </div>
-
-</div>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-    const comingSoonPopup =
-        document.getElementById("comingSoonPopup");
-
-    const comingSoonClose =
-        document.getElementById("comingSoonClose");
-
-    const comingSoonOk =
-        document.getElementById("comingSoonOk");
-
-    const comingSoonCard =
-        document.querySelector(".coming-soon-card");
-
-
-    // Open popup
-    if (comingSoonCard) {
-
-        comingSoonCard.addEventListener("click", (event) => {
-
-            event.preventDefault();
-
-            comingSoonPopup.classList.add("active");
-
-        });
-
-    }
-
-
-    // Close button
-    if (comingSoonClose) {
-
-        comingSoonClose.addEventListener("click", () => {
-
-            comingSoonPopup.classList.remove("active");
-
-        });
-
-    }
-
-
-    // OK button
-    if (comingSoonOk) {
-
-        comingSoonOk.addEventListener("click", () => {
-
-            comingSoonPopup.classList.remove("active");
-
-        });
-
-    }
-
-
-    // Close when clicking outside the box
-    if (comingSoonPopup) {
-
-        comingSoonPopup.addEventListener("click", (event) => {
-
-            if (event.target === comingSoonPopup) {
-
-                comingSoonPopup.classList.remove("active");
-
-            }
-
-        });
-
-    }
-
-});
-</script>
-
-
 </body>
 </html>

@@ -911,6 +911,92 @@
     </div>
 
 </footer>
+
+<!-- CDL AI ROBOT BUTTON -->
+<button
+    id="aiRobotButton"
+    class="ai-robot"
+    type="button"
+    aria-label="Open CDL AI Assistant"
+>
+    <img
+        src="images/ai-robot.jpg"
+        alt="CDL AI Assistant"
+    >
+</button>
+
+<!-- =========================================
+     CDL AI CHAT
+========================================= -->
+
+<div id="aiChat" class="ai-chat">
+
+    <div class="ai-chat-header">
+
+        <div class="ai-chat-title">
+
+            <img
+                src="images/ai-robot.jpg"
+                alt="CDL AI Assistant"
+            >
+
+            <div>
+                <strong>CDL AI Assistant</strong>
+                <small>How can we help you?</small>
+            </div>
+
+        </div>
+
+        <button
+            id="aiChatClose"
+            class="ai-chat-close"
+            type="button"
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+    </div>
+
+    
+
+
+    <div
+    id="aiChatBody"
+    class="ai-chat-body"
+>
+
+    <div class="ai-message">
+        <div class="ai-message-text">
+            Hello! 👋<br>
+            I'm the CDL JAPAN AI Assistant.<br>
+            How can I help you today?
+        </div>
+    </div>
+
+</div>
+
+
+<div class="ai-chat-input">
+
+    <input
+        id="aiChatInput"
+        type="text"
+        placeholder="Type your message..."
+        autocomplete="off"
+    >
+
+    <button
+        id="aiChatSend"
+        type="button"
+    >
+        Send
+    </button>
+
+</div>
+
+</div>
+
 <a href="https://line.me/" class="line-floating" target="_blank">
     LINE
 </a>
@@ -928,5 +1014,956 @@ AOS.init({
 <script src="script.js"></script>
 <button id="backToTop">↑</button>
 <script src="newyear.js"></script>
+
+
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // =====================================================
+    // ELEMENTS
+    // =====================================================
+
+    const robotButton =
+        document.getElementById("aiRobotButton");
+
+    const chatWindow =
+        document.getElementById("aiChat");
+
+    const closeButton =
+        document.getElementById("aiChatClose");
+
+    const sendButton =
+        document.getElementById("aiChatSend");
+
+    const input =
+        document.getElementById("aiChatInput");
+
+    const chatBody =
+        document.getElementById("aiChatBody");
+
+
+    // =====================================================
+    // CHECK ELEMENTS
+    // =====================================================
+
+    if (!robotButton) {
+        console.error("CDL AI: aiRobotButton not found");
+        return;
+    }
+
+    if (!chatWindow) {
+        console.error("CDL AI: aiChat not found");
+        return;
+    }
+
+    if (!closeButton) {
+        console.error("CDL AI: aiChatClose not found");
+        return;
+    }
+
+    if (!sendButton) {
+        console.error("CDL AI: aiChatSend not found");
+        return;
+    }
+
+    if (!input) {
+        console.error("CDL AI: aiChatInput not found");
+        return;
+    }
+
+    if (!chatBody) {
+        console.error("CDL AI: aiChatBody not found");
+        return;
+    }
+
+
+    // =====================================================
+    // CLOUDFLARE WORKER
+    // =====================================================
+
+    const AI_WORKER_URL =
+        "https://cdl-ai-chat.cdlnihon.workers.dev/";
+
+
+    // =====================================================
+    // ENGLISH PAGE
+    // =====================================================
+
+    const language = "en";
+
+
+    // =====================================================
+    // CONVERSATION HISTORY
+    // =====================================================
+
+    let conversationHistory = [];
+
+
+    // =====================================================
+    // SEND LOCK
+    // =====================================================
+
+    let isSending = false;
+
+
+    // =====================================================
+    // OPEN AI CHAT
+    // =====================================================
+
+    robotButton.addEventListener(
+        "click",
+        function () {
+
+            chatWindow.classList.add("active");
+
+            setTimeout(function () {
+
+                input.focus();
+
+            }, 100);
+
+        }
+    );
+
+
+    // =====================================================
+    // CLOSE AI CHAT
+    // =====================================================
+
+    closeButton.addEventListener(
+        "click",
+        function () {
+
+            chatWindow.classList.remove("active");
+
+        }
+    );
+
+
+    // =====================================================
+    // SCROLL
+    // =====================================================
+
+    function scrollToBottom() {
+
+        chatBody.scrollTop =
+            chatBody.scrollHeight;
+
+    }
+
+
+    // =====================================================
+    // USER MESSAGE
+    // =====================================================
+
+    function addUserMessage(message) {
+
+        const element =
+            document.createElement("div");
+
+        element.className =
+            "ai-user-message";
+
+        element.textContent =
+            message;
+
+        chatBody.appendChild(element);
+
+        scrollToBottom();
+
+    }
+
+
+    // =====================================================
+    // AI MESSAGE
+    // =====================================================
+
+    function addAIMessage() {
+
+        const element =
+            document.createElement("div");
+
+        element.className =
+            "ai-message";
+
+
+        const text =
+            document.createElement("div");
+
+        text.className =
+            "ai-message-text";
+
+
+        element.appendChild(text);
+
+        chatBody.appendChild(element);
+
+        scrollToBottom();
+
+        return text;
+
+    }
+
+
+    // =====================================================
+    // SAFE LINK
+    // =====================================================
+
+    function createSafeLink(label, url) {
+
+        try {
+
+            const parsed =
+                new URL(
+                    url,
+                    window.location.href
+                );
+
+
+            if (
+                parsed.protocol !== "http:" &&
+                parsed.protocol !== "https:"
+            ) {
+
+                return null;
+
+            }
+
+
+            const link =
+                document.createElement("a");
+
+
+            link.href =
+                parsed.href;
+
+
+            link.target =
+                "_blank";
+
+
+            link.rel =
+                "noopener noreferrer";
+
+
+            link.className =
+                "ai-link";
+
+
+            link.textContent =
+                label || url;
+
+
+            return link;
+
+        }
+        catch (error) {
+
+            console.error(
+                "CDL AI link error:",
+                error
+            );
+
+            return null;
+
+        }
+
+    }
+
+
+    // =====================================================
+    // RENDER AI MESSAGE
+    // =====================================================
+
+    function renderAIMessage(
+        container,
+        message
+    ) {
+
+        if (!message) {
+            return;
+        }
+
+
+        const text =
+            String(message)
+                .replace(/\r\n/g, "\n")
+                .replace(/\r/g, "\n");
+
+
+        // =================================================
+        // MARKDOWN LINK
+        // =================================================
+
+        const markdownRegex =
+            /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+
+
+        // =================================================
+        // NORMAL URL
+        // =================================================
+
+        const urlRegex =
+            /https?:\/\/[^\s<>"')\]]+/g;
+
+
+        const tokens = [];
+
+        let match;
+
+
+        // =================================================
+        // MARKDOWN LINKS
+        // =================================================
+
+        while (
+            (match =
+                markdownRegex.exec(text)) !== null
+        ) {
+
+            tokens.push({
+
+                start:
+                    match.index,
+
+                end:
+                    markdownRegex.lastIndex,
+
+                type:
+                    "markdown",
+
+                label:
+                    match[1],
+
+                url:
+                    match[2]
+
+            });
+
+        }
+
+
+        // =================================================
+        // NORMAL URLS
+        // =================================================
+
+        while (
+            (match =
+                urlRegex.exec(text)) !== null
+        ) {
+
+            const insideMarkdown =
+                tokens.some(function (token) {
+
+                    return (
+                        token.type === "markdown" &&
+                        match.index >= token.start &&
+                        match.index < token.end
+                    );
+
+                });
+
+
+            if (!insideMarkdown) {
+
+                tokens.push({
+
+                    start:
+                        match.index,
+
+                    end:
+                        urlRegex.lastIndex,
+
+                    type:
+                        "url",
+
+                    label:
+                        match[0],
+
+                    url:
+                        match[0]
+
+                });
+
+            }
+
+        }
+
+
+        // =================================================
+        // SORT
+        // =================================================
+
+        tokens.sort(function (a, b) {
+
+            return a.start - b.start;
+
+        });
+
+
+        // =================================================
+        // REMOVE OVERLAPS
+        // =================================================
+
+        const cleanTokens = [];
+
+
+        tokens.forEach(function (token) {
+
+            const previous =
+                cleanTokens[
+                    cleanTokens.length - 1
+                ];
+
+
+            if (
+                !previous ||
+                token.start >= previous.end
+            ) {
+
+                cleanTokens.push(token);
+
+            }
+
+        });
+
+
+        // =================================================
+        // NO LINKS
+        // =================================================
+
+        if (
+            cleanTokens.length === 0
+        ) {
+
+            renderPlainText(
+                container,
+                text
+            );
+
+            return;
+
+        }
+
+
+        // =================================================
+        // RENDER
+        // =================================================
+
+        let position = 0;
+
+
+        cleanTokens.forEach(function (token) {
+
+
+            // ---------------------------------------------
+            // TEXT BEFORE LINK
+            // ---------------------------------------------
+
+            if (
+                position < token.start
+            ) {
+
+                renderPlainText(
+
+                    container,
+
+                    text.substring(
+                        position,
+                        token.start
+                    )
+
+                );
+
+            }
+
+
+            // ---------------------------------------------
+            // LINK
+            // ---------------------------------------------
+
+            const link =
+                createSafeLink(
+                    token.label,
+                    token.url
+                );
+
+
+            if (link) {
+
+                container.appendChild(link);
+
+            }
+            else {
+
+                renderPlainText(
+                    container,
+                    token.label
+                );
+
+            }
+
+
+            position =
+                token.end;
+
+        });
+
+
+        // =================================================
+        // TEXT AFTER LINK
+        // =================================================
+
+        if (
+            position < text.length
+        ) {
+
+            renderPlainText(
+
+                container,
+
+                text.substring(position)
+
+            );
+
+        }
+
+
+        scrollToBottom();
+
+    }
+
+
+    // =====================================================
+    // PLAIN TEXT
+    // =====================================================
+
+    function renderPlainText(
+        container,
+        text
+    ) {
+
+        const lines =
+            text.split("\n");
+
+
+        lines.forEach(
+            function (line, index) {
+
+                if (index > 0) {
+
+                    container.appendChild(
+                        document.createElement("br")
+                    );
+
+                }
+
+
+                container.appendChild(
+                    document.createTextNode(line)
+                );
+
+            }
+        );
+
+    }
+
+
+    // =====================================================
+    // LOADING
+    // =====================================================
+
+    function addLoading() {
+
+        const element =
+            document.createElement("div");
+
+        element.className =
+            "ai-message";
+
+        element.dataset.loading =
+            "true";
+
+        element.textContent =
+            "Thinking...";
+
+        chatBody.appendChild(element);
+
+        scrollToBottom();
+
+        return element;
+
+    }
+
+
+    // =====================================================
+    // REMOVE LOADING
+    // =====================================================
+
+    function removeLoading(element) {
+
+        if (
+            element &&
+            element.parentNode
+        ) {
+
+            element.parentNode.removeChild(
+                element
+            );
+
+        }
+
+    }
+
+
+    // =====================================================
+    // SEND MESSAGE
+    // =====================================================
+
+    async function sendMessage() {
+
+
+        if (isSending) {
+            return;
+        }
+
+
+        const message =
+            input.value.trim();
+
+
+        if (!message) {
+            return;
+        }
+
+
+        // ================================================
+        // LOCK
+        // ================================================
+
+        isSending =
+            true;
+
+
+        sendButton.disabled =
+            true;
+
+
+        sendButton.style.opacity =
+            "0.6";
+
+
+        // ================================================
+        // USER MESSAGE
+        // ================================================
+
+        addUserMessage(message);
+
+
+        // ================================================
+        // CLEAR
+        // ================================================
+
+        input.value = "";
+
+
+        // ================================================
+        // LOADING
+        // ================================================
+
+        const loading =
+            addLoading();
+
+
+        try {
+
+
+            // ============================================
+            // SEND TO WORKER
+            // ============================================
+
+            const response =
+                await fetch(
+
+                    AI_WORKER_URL,
+
+                    {
+
+                        method:
+                            "POST",
+
+                        headers: {
+
+                            "Content-Type":
+                                "application/json"
+
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                message:
+                                    message,
+
+                                history:
+                                    conversationHistory,
+
+                                language:
+                                    language
+
+                            })
+
+                    }
+
+                );
+
+
+            // ============================================
+            // READ RESPONSE
+            // ============================================
+
+            let data = null;
+
+
+            try {
+
+                data =
+                    await response.json();
+
+            }
+            catch (jsonError) {
+
+                console.error(
+                    "CDL AI JSON error:",
+                    jsonError
+                );
+
+            }
+
+
+            // ============================================
+            // REMOVE LOADING
+            // ============================================
+
+            removeLoading(
+                loading
+            );
+
+
+            // ============================================
+            // ERROR
+            // ============================================
+
+            if (
+                !response.ok ||
+                !data ||
+                !data.reply
+            ) {
+
+                console.error(
+                    "CDL AI Worker error:",
+                    data
+                );
+
+
+                const errorMessage =
+                    addAIMessage();
+
+
+                renderAIMessage(
+
+                    errorMessage,
+
+                    `Sorry 😊
+
+The AI is temporarily unavailable.
+
+Please try again in a moment.
+
+[Contact Us](https://cdljp.com/contact-en.html)`
+
+                );
+
+
+                return;
+
+            }
+
+
+            // ============================================
+            // AI ANSWER
+            // ============================================
+
+            const aiMessage =
+                addAIMessage();
+
+
+            renderAIMessage(
+                aiMessage,
+                data.reply
+            );
+
+
+            // ============================================
+            // SAVE USER
+            // ============================================
+
+            conversationHistory.push({
+
+                role:
+                    "user",
+
+                text:
+                    message
+
+            });
+
+
+            // ============================================
+            // SAVE AI
+            // ============================================
+
+            conversationHistory.push({
+
+                role:
+                    "model",
+
+                text:
+                    data.reply
+
+            });
+
+
+            // ============================================
+            // KEEP LAST 20
+            // ============================================
+
+            if (
+                conversationHistory.length > 20
+            ) {
+
+                conversationHistory =
+                    conversationHistory.slice(-20);
+
+            }
+
+        }
+        catch (error) {
+
+
+            // ============================================
+            // CONNECTION ERROR
+            // ============================================
+
+            console.error(
+                "CDL AI connection error:",
+                error
+            );
+
+
+            removeLoading(
+                loading
+            );
+
+
+            const errorMessage =
+                addAIMessage();
+
+
+            renderAIMessage(
+
+                errorMessage,
+
+                `Sorry 😊
+
+The AI service is temporarily unavailable.
+
+Please try again later.
+
+[Contact Us](https://cdljp.com/contact-en.html)`
+
+            );
+
+        }
+
+
+        finally {
+
+
+            // ============================================
+            // UNLOCK
+            // ============================================
+
+            isSending =
+                false;
+
+
+            sendButton.disabled =
+                false;
+
+
+            sendButton.style.opacity =
+                "1";
+
+
+            input.focus();
+
+
+            scrollToBottom();
+
+        }
+
+    }
+
+
+    // =====================================================
+    // SEND BUTTON
+    // =====================================================
+
+    sendButton.addEventListener(
+        "click",
+        sendMessage
+    );
+
+
+    // =====================================================
+    // ENTER KEY
+    // =====================================================
+
+    input.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Enter" &&
+                !event.shiftKey
+            ) {
+
+                event.preventDefault();
+
+                sendMessage();
+
+            }
+
+        }
+    );
+
+
+    // =====================================================
+    // READY
+    // =====================================================
+
+    console.log(
+        "CDL AI English Assistant ready."
+    );
+
+});
+
+</script>
+
+
 </body>
 </html>

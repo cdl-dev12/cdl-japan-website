@@ -827,3 +827,65 @@ emailjs.send(
     });
 
 }
+
+/* ======================================================
+   COOKIE CONSENT
+====================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const cookieConsent =
+        document.getElementById("cookieConsent");
+
+    const acceptCookies =
+        document.getElementById("acceptCookies");
+
+    const rejectCookies =
+        document.getElementById("rejectCookies");
+
+    if (!cookieConsent) return;
+
+    // Check whether the user already made a choice
+    const cookieChoice =
+        localStorage.getItem("cdlCookieConsent");
+
+    // Show popup only if no choice has been made
+    if (!cookieChoice) {
+
+        cookieConsent.classList.add("show");
+
+    }
+
+    // Accept Cookies
+    if (acceptCookies) {
+
+        acceptCookies.addEventListener("click", function () {
+
+            localStorage.setItem(
+                "cdlCookieConsent",
+                "accepted"
+            );
+
+            cookieConsent.classList.remove("show");
+
+        });
+
+    }
+
+    // Reject Cookies
+    if (rejectCookies) {
+
+        rejectCookies.addEventListener("click", function () {
+
+            localStorage.setItem(
+                "cdlCookieConsent",
+                "rejected"
+            );
+
+            cookieConsent.classList.remove("show");
+
+        });
+
+    }
+
+});

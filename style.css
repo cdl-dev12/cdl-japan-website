@@ -7198,20 +7198,24 @@ div{
 
 .cookie-consent {
     position: fixed;
-    left: 0;
-    bottom: 0;
+    inset: 0;
     width: 100%;
-    z-index: 99999;
+    height: 100%;
+    z-index: 999999;
 
     padding: 20px;
-
     box-sizing: border-box;
 
     display: none;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    align-items: flex-end;
+    justify-content: center;
 }
 
 .cookie-consent.show {
-    display: block;
+    display: flex;
 }
 
 .cookie-content {
